@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temperature Converter — Atmospheric</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <main class="stage">
+    <section class="glass-card" aria-labelledby="app-title">
+      <p class="kicker">Temperature Converter</p>
+      <h1 id="app-title">Temperature, translated.</h1>
+      <p class="subtitle">Convert between Celsius, Fahrenheit and Kelvin instantly.</p>
+
+      <form id="converter-form" novalidate>
+        <div class="input-row">
+          <label for="temperature-input" class="visually-hidden">Temperature value</label>
+          <input
+            id="temperature-input"
+            name="temperature"
+            type="text"
+            inputmode="decimal"
+            value="25"
+            aria-describedby="validation-message"
+            autocomplete="off"
+          />
+          <span class="input-unit-badge" id="active-unit-badge" aria-hidden="true">°C</span>
+        </div>
+        <p id="validation-message" class="validation-message" role="alert" aria-live="polite"></p>
+
+        <div class="unit-selector" role="radiogroup" aria-label="Input unit">
+          <button type="button" class="unit-option is-active" data-unit="celsius" role="radio" aria-checked="true">°C Celsius</button>
+          <button type="button" class="unit-option" data-unit="fahrenheit" role="radio" aria-checked="false">°F Fahrenheit</button>
+          <button type="button" class="unit-option" data-unit="kelvin" role="radio" aria-checked="false">K Kelvin</button>
+        </div>
+
+        <button type="submit" class="convert-btn">Convert Temperature</button>
+      </form>
+
+      <p id="status-message" class="status-message" aria-live="polite"></p>
+
+      <div class="results" id="results">
+        <article class="result-card" data-unit="celsius">
+          <h2>Celsius</h2>
+          <p><span id="result-celsius">--</span><span class="unit-suffix">°C</span></p>
+        </article>
+        <article class="result-card" data-unit="fahrenheit">
+          <h2>Fahrenheit</h2>
+          <p><span id="result-fahrenheit">--</span><span class="unit-suffix">°F</span></p>
+        </article>
+        <article class="result-card" data-unit="kelvin">
+          <h2>Kelvin</h2>
+          <p><span id="result-kelvin">--</span><span class="unit-suffix">K</span></p>
+        </article>
+      </div>
+
+      <div class="temp-status" id="temp-status">
+        <span class="temp-status-emoji" id="status-emoji">🌤️</span>
+        <span class="temp-status-text" id="status-text">Pleasant</span>
+      </div>
+
+      <div class="temp-scale">
+        <div class="scale-track">
+          <div class="scale-bar"></div>
+          <label class="visually-hidden" for="scale-range">Temperature scale</label>
+          <input id="scale-range" class="scale-range" type="range" min="-10" max="45" step="0.1" value="25" />
+        </div>
+        <div class="scale-icons">
+          <span>❄️</span>
+          <span>🌨️</span>
+          <span>🧥</span>
+          <span>🌤️</span>
+          <span>☀️</span>
+          <span>🔥</span>
+        </div>
+        <p class="scale-value" id="scale-value">25°C</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
