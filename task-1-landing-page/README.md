@@ -139,7 +139,7 @@ All design tokens are defined as CSS custom properties in `:root` for easy themi
 | **CSS Animations & Keyframes** | Hero slideshow, scroll reveals, hover effects |
 | **Google Fonts** | Fraunces, Inter, IBM Plex Mono |
 
-> ⚡ Zero JavaScript. Zero frameworks. Zero build tools.
+>  Zero JavaScript. Zero frameworks. Zero build tools.
 
 ---
 
